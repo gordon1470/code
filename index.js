@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 
 app.get('/:number', function (req, res) {
+	if(req.params.number <= 10000000){
     var sieve = [], i, j, primes = [];
     for (i = 2; i <= req.params.number; ++i) {
         if (!sieve[i]) {
@@ -14,7 +15,7 @@ app.get('/:number', function (req, res) {
     }
 	primes.forEach(function (obj){
 	  res.write(obj.toString()+"\n");
-  });
+  });}else res.send("Number too high!");
   res.end();
 });
 
