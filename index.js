@@ -18,6 +18,10 @@ app.get('/:number', function (req, res) {
   });}else res.send("Number too high!");
   res.end();
 });
+app.get('/', function (req, res) {
+	res.send("OK!");
+  res.end();
+});
 
 var server = app.listen(3000, function () {
   var host = server.address().address;
